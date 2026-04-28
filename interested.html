@@ -76,7 +76,16 @@
                 <h1 class="text-4xl font-bold tracking-tight">Who wants access?</h1>
                 <p class="text-muted-foreground">The panel requires a verified target for communication. Submit your Gmail to be flagged for the early beta.</p>
 
-                <form id="interestForm" class="flex flex-col gap-4 mt-4">
+                <form id="interestForm" class="flex flex-col gap-5 mt-4">
+                    <div class="relative group">
+                        <input 
+                            type="text" 
+                            id="nameInput"
+                            placeholder="YOUR NAME (OPTIONAL)" 
+                            class="w-full bg-[#1C1C1C] border border-[#383838] px-6 py-4 mono text-sm focus:outline-none focus:border-[#B01B1B] transition-all placeholder:text-[#383838] uppercase"
+                        >
+                        <div class="absolute bottom-0 left-0 h-[1px] bg-[#B01B1B] w-0 group-focus-within:w-full transition-all duration-500"></div>
+                    </div>
                     <div class="relative group">
                         <input 
                             type="email" 
@@ -135,7 +144,8 @@
         const analytics = getAnalytics(app);
 
         const form = document.getElementById('interestForm');
-        const input = document.getElementById('emailInput');
+        const nameInput = document.getElementById('nameInput');
+        const emailInput = document.getElementById('emailInput');
         const msg = document.getElementById('msg');
         const loader = document.getElementById('loader');
         const arrow = document.getElementById('arrow');
@@ -150,7 +160,8 @@
                 return;
             }
 
-            const email = input.value.trim();
+            const email = emailInput.value.trim();
+            const name = nameInput.value.trim();
             if (!email) return;
 
             msg.innerText = "> UPLOADING SUBJECT DATA...";
@@ -161,6 +172,7 @@
 
             try {
                 await addDoc(collection(db, "interested_users"), {
+                    name: name || "Anonymous",
                     email: email,
                     source: "interested_page",
                     timestamp: serverTimestamp()
@@ -168,7 +180,8 @@
 
                 msg.innerText = "> SUBJECT REGISTERED. TERMINATING SESSION.";
                 msg.className = "mono text-[10px] uppercase text-green-500";
-                input.value = "";
+                emailInput.value = "";
+                nameInput.value = "";
                 
                 setTimeout(() => {
                     window.location.href = "index.html";
