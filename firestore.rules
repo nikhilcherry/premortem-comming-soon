@@ -1,0 +1,13 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /interested_users/{document} {
+      // SECURITY RULES:
+      // 1. Allow anyone to create an entry (submit an email).
+      // 2. DENY anyone from reading the list of emails.
+      // 3. DENY updates or deletions to keep the data intact.
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+  }
+}
