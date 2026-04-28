@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Mortem | Request Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #0D0D0D;
+            --foreground: #F5F5F5;
+            --accent: #B01B1B;
+            --muted-foreground: #9EA3A3;
+            --border: #383838;
+            --card: #1C1C1C;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--foreground);
+            font-family: 'Geist', sans-serif;
+            overflow: hidden;
+        }
+
+        .mono {
+            font-family: 'Geist Mono', monospace;
+        }
+
+        /* Scanline Overlay */
+        .scanline-mask {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent 0,
+                transparent 2px,
+                rgba(255, 255, 255, 0.015) 2px,
+                rgba(255, 255, 255, 0.015) 3px
+            );
+            z-index: 50;
+        }
+
+        .cyber-border {
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: -1px;
+            width: 10px; height: 10px;
+            border-top: 2px solid var(--accent);
+            border-left: 2px solid var(--accent);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="scanline-mask"></div>
+
+    <main class="relative z-10 h-screen flex flex-col justify-center items-center px-6">
+        <div class="w-full max-w-lg">
+            <div class="mb-12">
+                <a href="premortem_coming_soon.html" class="mono text-[10px] text-muted-foreground hover:text-[#B01B1B] transition-colors uppercase tracking-widest flex items-center gap-2">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></span>
+                    Abort Interrogation
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                <div class="mono text-[10px] uppercase tracking-[0.4em] text-[#B01B1B]">Subject Identification Required</div>
+                <h1 class="text-4xl font-bold tracking-tight">Who wants access?</h1>
+                <p class="text-muted-foreground">The panel requires a verified target for communication. Submit your Gmail to be flagged for the early beta.</p>
+
+                <form id="interestForm" class="flex flex-col gap-4 mt-4">
+                    <div class="relative group">
+                        <input 
+                            type="email" 
+                            id="emailInput"
+                            placeholder="TARGET-EMAIL@GMAIL.COM" 
+                            required
+                            class="w-full bg-[#1C1C1C] border border-[#383838] px-6 py-4 mono text-sm focus:outline-none focus:border-[#B01B1B] transition-all placeholder:text-[#383838] uppercase"
+                        >
+                        <div class="absolute bottom-0 left-0 h-[1px] bg-[#B01B1B] w-0 group-focus-within:w-full transition-all duration-500"></div>
+                    </div>
+                    <button 
+                        type="submit" 
+                        id="submitBtn"
+                        class="bg-[#B01B1B] text-white mono uppercase text-xs tracking-widest py-4 hover:bg-[#D02B2B] transition-colors flex items-center justify-center gap-4 group"
+                    >
+                        <span>Confirm Interest</span>
+                        <svg id="arrow" class="group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        <span id="loader" class="hidden w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></span>
+                    </button>
+                    <div class="h-6">
+                        <p id="msg" class="mono text-[10px] uppercase"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 left-0 right-0 text-center mono text-[9px] text-muted-foreground uppercase tracking-widest opacity-40">
+            Secure Submission Protocol // Encrypted at Rest
+        </div>
+    </main>
+
+    <!-- Firebase Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDwGdbxuSx--Nqq8O2_poyuhkwlhcYkn_Y",
+            authDomain: "storage-b526f.firebaseapp.com",
+            projectId: "storage-b526f",
+            storageBucket: "storage-b526f.firebasestorage.app",
+            messagingSenderId: "940603506634",
+            appId: "1:940603506634:web:8bd100bcde5bff3ab79933",
+            measurementId: "G-DZ0SBGB9QD"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const analytics = getAnalytics(app);
+
+        const form = document.getElementById('interestForm');
+        const input = document.getElementById('emailInput');
+        const msg = document.getElementById('msg');
+        const loader = document.getElementById('loader');
+        const arrow = document.getElementById('arrow');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = input.value.trim();
+            if (!email) return;
+
+            msg.innerText = "> UPLOADING SUBJECT DATA...";
+            msg.className = "mono text-[10px] uppercase text-white animate-pulse";
+            loader.classList.remove('hidden');
+            arrow.classList.add('hidden');
+            btn.disabled = true;
+
+            try {
+                await addDoc(collection(db, "interested_users"), {
+                    email: email,
+                    source: "interested_page",
+                    timestamp: serverTimestamp()
+                });
+
+                msg.innerText = "> SUBJECT REGISTERED. TERMINATING SESSION.";
+                msg.className = "mono text-[10px] uppercase text-green-500";
+                input.value = "";
+                
+                setTimeout(() => {
+                    window.location.href = "premortem_coming_soon.html";
+                }, 2000);
+            } catch (err) {
+                console.error("Firebase Error:", err);
+                msg.innerText = "> ERROR: DATA CORRUPTION. RETRY.";
+                msg.className = "mono text-[10px] uppercase text-[#B01B1B]";
+                btn.disabled = false;
+                loader.classList.add('hidden');
+                arrow.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
