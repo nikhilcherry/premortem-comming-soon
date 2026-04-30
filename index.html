@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
             --background: #0D0D0D;
@@ -292,6 +294,187 @@
             </div>
         </section>
 
+        <!-- Pricing Section -->
+        <section id="pricing" class="w-full bg-[#0D0D0D] py-24 px-6 border-b border-[#383838]">
+            <div class="mx-auto max-w-5xl">
+                <div class="mb-16 text-center md:text-left">
+                    <p class="mono text-xs uppercase tracking-[0.2em] text-[#B01B1B] mb-4">Pricing Protocol</p>
+                    <h2 class="text-3xl md:text-5xl font-semibold tracking-tight">Pay now. Or pay later.</h2>
+                    <p class="mt-4 text-muted-foreground max-w-2xl">A cheap interrogation today saves you two years of burning cash. Choose your level of destruction.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 max-w-[90rem] mx-auto px-4">
+                    <!-- The Bait Tier -->
+                    <div class="cyber-border pricing-card bg-[#121212] p-6 flex flex-col group hover:border-[#B01B1B50] transition-colors relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 mono text-[#383838] opacity-20 text-6xl font-black select-none pointer-events-none group-hover:text-[#B01B1B] group-hover:opacity-10 transition-all duration-500">0</div>
+                        <div class="h-4 mb-4"></div>
+                        <h3 class="text-xl font-bold uppercase mono tracking-tight text-white mb-2">The Bait</h3>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-black text-white">$0</span>
+                            <span class="text-xs mono text-muted-foreground uppercase">/ month</span>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-8">See the panel. Feel the pain. Want the rest? You know what to do.</p>
+                        <ul class="flex flex-col gap-4 text-sm text-muted-foreground mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                1 idea validation / month
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Full 5-agent interrogation
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Deadpool Score (number only, no breakdown)
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Truncated PDF — market & competitor sections redacted
+                            </li>
+                            <li class="flex items-start gap-3 opacity-50">
+                                <svg class="w-4 h-4 text-[#383838] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                No Survivor Mode
+                            </li>
+                            <li class="flex items-start gap-3 opacity-50">
+                                <svg class="w-4 h-4 text-[#383838] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                No history
+                            </li>
+                        </ul>
+                        <a href="interested.html" class="mt-auto block w-full text-center border border-[#383838] text-white mono uppercase text-xs tracking-widest py-4 hover:border-[#B01B1B] hover:text-[#B01B1B] transition-colors relative z-10">
+                            Select Plan
+                        </a>
+                    </div>
+
+                    <!-- Survivor Tier -->
+                    <div class="cyber-border pricing-card bg-[#121212] p-6 flex flex-col group hover:border-[#B01B1B50] transition-colors relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 mono text-[#383838] opacity-20 text-6xl font-black select-none pointer-events-none group-hover:text-[#B01B1B] group-hover:opacity-10 transition-all duration-500">I</div>
+                        <div class="h-4 mb-4"></div>
+                        <h3 class="text-xl font-bold uppercase mono tracking-tight text-white mb-2">The Survivor</h3>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-black text-white">$11</span>
+                            <span class="text-xs mono text-muted-foreground uppercase">/ month</span>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-8">You're serious. We'll be gentle. Just kidding.</p>
+                        <ul class="flex flex-col gap-4 text-sm text-muted-foreground mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                3 idea validations / month
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Full 5-agent interrogation
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Deadpool Score + breakdown
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Survivor Mode access
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Shareable PDF report
+                            </li>
+                        </ul>
+                        <a href="interested.html" class="mt-auto block w-full text-center border border-[#383838] text-white mono uppercase text-xs tracking-widest py-4 hover:border-[#B01B1B] hover:text-[#B01B1B] transition-colors relative z-10">
+                            Select Plan
+                        </a>
+                    </div>
+
+                    <!-- Standard Tier (RECOMMENDED) -->
+                    <div class="cyber-border pricing-card bg-[#121212] p-6 flex flex-col group border-[#B01B1B50] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-[#B01B1B05] to-transparent pointer-events-none"></div>
+                        <div class="absolute top-0 right-0 p-4 mono text-[#383838] opacity-20 text-6xl font-black select-none pointer-events-none group-hover:text-[#B01B1B] group-hover:opacity-10 transition-all duration-500">II</div>
+                        <div class="mono text-[10px] text-[#B01B1B] uppercase tracking-widest mb-4 flex items-center gap-2 h-4">
+                            <span class="w-1.5 h-1.5 bg-[#B01B1B] rounded-full animate-pulse"></span>
+                            Recommended
+                        </div>
+                        <h3 class="text-xl font-bold uppercase mono tracking-tight text-white mb-2">The Interrogation</h3>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-black text-white">$49</span>
+                            <span class="text-xs mono text-muted-foreground uppercase">/ month</span>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-8">No limits. No mercy.</p>
+                        <ul class="flex flex-col gap-4 text-sm text-muted-foreground mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Unlimited idea validations
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Full 5-agent interrogation
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Deadpool Score + detailed flaw breakdown
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Survivor Mode access
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Priority queuing
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Validation history + compare past ideas
+                            </li>
+                        </ul>
+                        <a href="interested.html" class="mt-auto block w-full text-center bg-[#B01B1B] text-white mono uppercase text-xs tracking-widest py-4 hover:bg-[#D02B2B] transition-colors relative z-10 overflow-hidden group-hover:shadow-[0_0_15px_rgba(176,27,27,0.3)]">
+                            Select Plan
+                        </a>
+                    </div>
+
+                    <!-- Premium Tier (Not Recommended anymore) -->
+                    <div class="cyber-border pricing-card bg-[#121212] p-6 flex flex-col group hover:border-[#B01B1B50] transition-colors relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 mono text-[#383838] opacity-20 text-6xl font-black select-none pointer-events-none group-hover:text-[#B01B1B] group-hover:opacity-10 transition-all duration-500">III</div>
+                        <div class="h-4 mb-4"></div>
+                        <h3 class="text-xl font-bold uppercase mono tracking-tight text-white mb-2">The Autopsy</h3>
+                        <div class="flex items-baseline gap-2 mb-6">
+                            <span class="text-4xl font-black text-white">$199</span>
+                            <span class="text-xs mono text-muted-foreground uppercase">/ month</span>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-8">For teams who can't afford to be wrong.</p>
+                        <ul class="flex flex-col gap-4 text-sm text-muted-foreground mb-8 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Everything in The Interrogation
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Up to 5 team seats
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Competitor Blindspots Report
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Actionable Survival Path
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                API access
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                White-label PDF reports
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-[#B01B1B] mt-0.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Dedicated Slack support
+                            </li>
+                        </ul>
+                        <a href="interested.html" class="mt-auto block w-full text-center border border-[#383838] text-white mono uppercase text-xs tracking-widest py-4 hover:border-[#B01B1B] hover:text-[#B01B1B] transition-colors relative z-10">
+                            Select Plan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA to Interested Page -->
         <section class="mx-auto w-full max-w-2xl px-6 py-24 text-center">
             <div class="flex flex-col gap-8">
@@ -321,6 +504,24 @@
 
     <script type="module">
         console.log("Pre-Mortem Protocol Initialized...");
+
+        // GSAP Animations
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from(".pricing-card", {
+                scrollTrigger: {
+                    trigger: "#pricing",
+                    start: "top 75%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+        }
     </script>
 </body>
 </html>
