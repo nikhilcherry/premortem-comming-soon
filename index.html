@@ -3,13 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-Mortem | Kill Your Idea</title>
+    <title>Pre-Mortem Agent — Kill Your Startup Idea Before It Kills You | AI Idea Validator</title>
+    <meta name="description" content="An adversarial AI panel of 5 specialized agents interrogates your startup idea, predicts how it dies, and assigns a Deadpool Score. Validate before you build. Save yourself two years.">
+    <meta name="keywords" content="startup idea validation, AI idea validator, pre-mortem analysis, startup risk assessment, Deadpool Score, adversarial AI, business idea testing, startup failure prediction, idea validation tool, founder tools">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Pre-Mortem Labs">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://premortem.app">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Pre-Mortem Agent">
+    <meta property="og:title" content="Pre-Mortem Agent — Kill Your Startup Idea Before It Kills You">
+    <meta property="og:description" content="5 adversarial AI agents interrogate your startup idea, predict how it dies, and assign a Deadpool Score. Validate before you build.">
+    <meta property="og:url" content="https://premortem.app">
+    <meta property="og:image" content="https://premortem.app/opengraph-image">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Pre-Mortem Agent — Kill your idea before it kills you">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pre-Mortem Agent — Kill Your Startup Idea Before It Kills You">
+    <meta name="twitter:description" content="5 adversarial AI agents interrogate your startup idea and assign a Deadpool Score. Save yourself two years.">
+    <meta name="twitter:image" content="https://premortem.app/opengraph-image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://premortem.app/icon.svg">
+    <link rel="apple-touch-icon" href="https://premortem.app/apple-icon.png">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Fonts & Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- JSON-LD Structured Data: WebSite + Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://premortem.app/#website",
+                "name": "Pre-Mortem Agent",
+                "url": "https://premortem.app",
+                "description": "An adversarial AI panel that interrogates your startup idea, predicts how it dies, and gives you a Deadpool Score.",
+                "publisher": { "@id": "https://premortem.app/#organization" }
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://premortem.app/#organization",
+                "name": "Pre-Mortem Labs",
+                "url": "https://premortem.app",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://premortem.app/icon.svg"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pre-Mortem Agent",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://premortem.app",
+        "description": "AI-powered startup idea validation tool. Five adversarial AI agents interrogate your idea, assign a Deadpool Score, and reveal fatal flaws before you waste two years.",
+        "offers": [
+            { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "The Bait (Free)" },
+            { "@type": "Offer", "price": "9", "priceCurrency": "USD", "name": "The Survivor" },
+            { "@type": "Offer", "price": "19", "priceCurrency": "USD", "name": "The Founder" },
+            { "@type": "Offer", "price": "49", "priceCurrency": "USD", "name": "The Interrogation" }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (GEO optimization — +40% AI citation visibility) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Pre-Mortem Agent?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pre-Mortem Agent is an AI-powered startup idea validation tool that uses five specialized adversarial AI agents to interrogate your business idea. Each agent attacks from a different angle — market viability, founder-market fit, unit economics, competitive landscape, and customer behavior — then assigns a Deadpool Score predicting how likely your idea is to fail."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the Deadpool Score work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Deadpool Score is a composite risk metric generated after five AI sub-agents (The Market Realist, The Founder Skeptic, The Cost Auditor, The Competitor Hunter, and The Customer Cynic) interrogate your startup idea with six adversarial questions. The score reflects the probability of failure across market, financial, competitive, and execution dimensions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Pre-Mortem Agent free to use?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, Pre-Mortem offers a free tier called 'The Bait' that includes one full autopsy with the complete 5-agent panel and Deadpool Score. Paid plans start at $9/month (The Survivor), $19/month (The Founder), and $49/month (The Interrogation) for unlimited autopsies and the VC War Room simulator."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the five AI agents in Pre-Mortem?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The five adversarial AI agents are: (1) The Market Realist — attacks assumptions about TAM and willingness to pay; (2) The Founder Skeptic — probes founder-market fit; (3) The Cost Auditor — focuses on unit economics and burn rate; (4) The Competitor Hunter — identifies incumbents and moats; (5) The Customer Cynic — evaluates switching costs and user behavior change."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the VC War Room?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The VC War Room is a high-stakes pitch simulation where AI venture capitalists probe for weaknesses in your unit economics, scale potential, and competitive moat. It includes live investor simulation, stress-testing, and an objection handling coach. Available on the $49/month Interrogation tier."
+                }
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --background: #0D0D0D;

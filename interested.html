@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-Mortem | Request Access</title>
+    <title>Request Early Access — Pre-Mortem Agent | AI Startup Idea Validator</title>
+    <meta name="description" content="Request early access to Pre-Mortem Agent — the adversarial AI panel that interrogates your startup idea before you waste two years building the wrong thing.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="Pre-Mortem Labs">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://premortem.app/interested">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pre-Mortem Agent">
+    <meta property="og:title" content="Request Early Access — Pre-Mortem Agent">
+    <meta property="og:description" content="Join the first wave of founders getting their startup ideas interrogated by 5 adversarial AI agents.">
+    <meta property="og:url" content="https://premortem.app/interested">
+    <meta property="og:image" content="https://premortem.app/opengraph-image">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Request Early Access — Pre-Mortem Agent">
+    <meta name="twitter:description" content="Join the first wave of founders getting their ideas interrogated by 5 adversarial AI agents.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://premortem.app/icon.svg">
+    <link rel="apple-touch-icon" href="https://premortem.app/apple-icon.png">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <!-- Fonts & Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,22 +105,26 @@
                 <h1 class="text-4xl font-bold tracking-tight">Who wants access?</h1>
                 <p class="text-muted-foreground">The panel requires a verified target for communication. Submit your Gmail to be flagged for the early beta.</p>
 
-                <form id="interestForm" class="flex flex-col gap-5 mt-4">
+                <form id="interestForm" class="flex flex-col gap-5 mt-4" aria-label="Request early access">
                     <div class="relative group">
+                        <label for="nameInput" class="sr-only">Your name (optional)</label>
                         <input 
                             type="text" 
                             id="nameInput"
                             placeholder="YOUR NAME (OPTIONAL)" 
+                            autocomplete="name"
                             class="w-full bg-[#1C1C1C] border border-[#383838] px-6 py-4 mono text-sm focus:outline-none focus:border-[#B01B1B] transition-all placeholder:text-[#383838] uppercase"
                         >
                         <div class="absolute bottom-0 left-0 h-[1px] bg-[#B01B1B] w-0 group-focus-within:w-full transition-all duration-500"></div>
                     </div>
                     <div class="relative group">
+                        <label for="emailInput" class="sr-only">Email address</label>
                         <input 
                             type="email" 
                             id="emailInput"
                             placeholder="TARGET-EMAIL@GMAIL.COM" 
                             required
+                            autocomplete="email"
                             class="w-full bg-[#1C1C1C] border border-[#383838] px-6 py-4 mono text-sm focus:outline-none focus:border-[#B01B1B] transition-all placeholder:text-[#383838] uppercase"
                         >
                         <div class="absolute bottom-0 left-0 h-[1px] bg-[#B01B1B] w-0 group-focus-within:w-full transition-all duration-500"></div>
